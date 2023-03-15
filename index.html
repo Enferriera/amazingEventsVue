@@ -104,26 +104,36 @@
     <div class="d-flex  justify-content-lg-around justify-content-md-center gap-3 flex-md-row flex-sm-column flex-column
     align-items-sm-center align-items-center m-sm-2 m-2">  
       <div id="containerCheck"  >
-     
+        <template v-for="check of checkBox">
+     <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" name="category" 
+          v-bind:value="check" v-model="checked">
+     <label class="form-check-label" v-bind:for="check">{{check}}</label>
+     </div>
+    
+    </template>
+    
       </div>
       <div class="d-flex" >
-        <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+        <input v-model="textSearch" class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
       
       </div>
     </div>
 
-<div id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
-  <template v-for="card of dataEvents.events" >
+<div v-if="filtrarPorCheck.length !=0" id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
+ 
+  <template  v-for="card of filtrarPorCheck" >
   <div class="card mb-3" style="width:25rem"><img v-bind:src="card.image" class="card-img-top h-50 border-bottom" v-bind:alt="card.name">
     <div class="card-body d-flex flex-column bg-black">
       <h5 class="card-title text-white">{{card.name}}</h5>
      <p class="text-white">{{card.description}}</p>
      <p class="text-white">$ {{card.price}}</p>
-      <a href="./details.html?id=${card._id}" class="btn text-white  color-btn align-self-end">Ver más</a>
+      <a href="./details.html?id=card._id" class="btn text-white  color-btn align-self-end">Ver más</a>
     </div>
   </div> 
 </template>
 </div>
+<div v-else class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2"> <p class="bg-black px-2 text-danger display-5">The title entered does not exist</p></div>
     </main>
     <footer class="d-flex justify-content-sm-between bg-black 
      align-items-center justify-content-center ">
