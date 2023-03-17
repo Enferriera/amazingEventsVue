@@ -100,7 +100,8 @@
 
     <main id="app">
 
-    
+    {{filtrarPorCheck}}
+
     <div class="d-flex  justify-content-lg-around justify-content-md-center gap-3 flex-md-row flex-sm-column flex-column
     align-items-sm-center align-items-center m-sm-2 m-2">  
       <div id="containerCheck"  >
@@ -120,15 +121,15 @@
       </div>
     </div>
 
-<div v-if="filtrarPorCheck.length !=0" id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
+<div v-if="eventFiltrado.length !=0" id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
  
-  <template  v-for="card of filtrarPorCheck" >
+  <template  v-for="card of eventFiltrado" >
   <div class="card mb-3" style="width:25rem"><img v-bind:src="card.image" class="card-img-top h-50 border-bottom" v-bind:alt="card.name">
     <div class="card-body d-flex flex-column bg-black">
       <h5 class="card-title text-white">{{card.name}}</h5>
      <p class="text-white">{{card.description}}</p>
      <p class="text-white">$ {{card.price}}</p>
-      <a href="./details.html?id=card._id" class="btn text-white  color-btn align-self-end">Ver más</a>
+      <a :href="'./details.html?id='+card._id" class="btn text-white  color-btn align-self-end">Ver más</a>
     </div>
   </div> 
 </template>
