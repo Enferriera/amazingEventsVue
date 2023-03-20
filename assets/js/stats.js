@@ -11,7 +11,8 @@ return {
   upcoming:[],
   past:[],
   tableUpcoming:[],
-  tablePast:[]
+  tablePast:[],
+  statitics:{}
   
 }
 }, 
@@ -35,21 +36,19 @@ created(){
   .catch(error=>console.log(error.message))
 
 },
-method:{
-   
- 
-    percentAttendance: function (arrayCard){
-       
-       let sumaCapacidad=arrayCard.
-       return (sumaCapacidad*100/arrayByCategory.length).toFixed(2)
-     }
-
-     
-     
-},
 computed:{
     
      calculo:function(){
+      this.statitics.moreAssistance=this.past.reduce((evento1,evento2)=>
+        (evento1.assistance/evento1.capacity)>(evento2.assistance/evento2.capacity)?evento1:evento2
+      )
+      this.statitics.lessAssistance=this.past.reduce((evento1,evento2)=>
+        (evento1.assistance/evento1.capacity)<(evento2.assistance/evento2.capacity)?evento1:evento2
+      )
+
+       this.statitics.capacity=this.dataEvents.reduce((evento1,evento2)=>
+        evento1.capacity>evento2.capacity?evento1:evento2
+      )
     this.categoriaUpcoming.forEach(category=>{
         let objet={}
         objet.category=category

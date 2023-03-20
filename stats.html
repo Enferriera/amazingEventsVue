@@ -109,7 +109,13 @@
         </tr>
       </thead>
       <tbody id="tb-event-stats">
-     
+        
+          <tr class="text-center">
+            <td>{{statitics.moreAssistance.name}}: {{(statitics.moreAssistance.assistance*100/statitics.moreAssistance.capacity).toFixed(2)}}%</td>
+            <td>{{statitics.lessAssistance.name}}: {{(statitics.lessAssistance.assistance*100/statitics.lessAssistance.capacity).toFixed(2)}}%</td>
+            <td>{{statitics.capacity.name}}: {{statitics.capacity.capacity}}</td>
+          </tr>
+        
        
         </tbody>
         </table>
