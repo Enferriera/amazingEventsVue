@@ -121,7 +121,7 @@
       </div>
     </div>
 
-<div v-if="eventFiltrado.length !=0" id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
+<div v-if="eventFiltrado.length >0" id="cardHome" class="d-flex justify-content-evenly flex-wrap mt-3 mb-3 mx-2">
  
   <template  v-for="card of eventFiltrado" >
   <div class="card mb-3" style="width:25rem"><img v-bind:src="card.image" class="card-img-top h-50 border-bottom" v-bind:alt="card.name">
