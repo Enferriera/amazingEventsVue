@@ -4,25 +4,27 @@ createApp({
 //define el estado de la aplicación
 data() {
 return {
+  datos:{},
   dataEvents:[],
   checked:[],
   checkBox:[],
   eventUpcomming:[],
   eventFiltrado:[],
-  textSearch:"",
-message: '¡Hola, Mundo!'
+  textSearch:""
+
 }
 }, 
 created(){
   fetch("https://mindhub-xj03.onrender.com/api/amazing")
   .then(response=>response.json())
-  .then(datos=> {this.dataEvents=datos
+  .then(datos=> {this.datos=datos
+    this.dataEvents=this.datos.events
   
-  this.eventUpcomming=this.dataEvents.events.filter(event=> new Date(event.date)> new Date(this.dataEvents.currentDate))
+  this.eventUpcomming=this.dataEvents.filter(event=> new Date(event.date)> new Date(this.datos.currentDate))
   this.checkBox=[... new Set(this.eventUpcomming.map(event=>event.category))]})
 
   .catch(error=>console.log(error.message))
-  console.log(this.message)
+  
 },
 computed:{
   filtrarPorCheck:function filtroCheck(){

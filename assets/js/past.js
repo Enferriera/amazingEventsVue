@@ -4,6 +4,7 @@ createApp({
 //define el estado de la aplicación
 data() {
 return {
+  datos:{},
   dataEvents:[],
   checked:[],
   checkBox:[],
@@ -15,8 +16,10 @@ return {
 created(){
   fetch("https://mindhub-xj03.onrender.com/api/amazing")
   .then(response=>response.json())
-  .then(datos=> {this.dataEvents=datos
-  this.eventPast=this.dataEvents.events.filter(event=> new Date(event.date)< new Date(this.dataEvents.currentDate))
+  .then(datos=> {this.datos=datos
+    this.dataEvents=this.datos.events
+    console.log(this.dataEvents)
+  this.eventPast=this.dataEvents.filter(event=> new Date(event.date)< new Date(this.datos.currentDate))
   this.checkBox=[... new Set(this.eventPast.map(event=>event.category))]})
   .catch(error=>console.log(error.message))
 },
