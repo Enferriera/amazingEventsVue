@@ -16,8 +16,8 @@
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
       <div class="container-fluid justify-content-md-between justify-content-center">
-        <a class="navbar-brand text-lg-start text-center" href="./index.html"><img src="./assets/img/Logo_Amazing_Events.png"
-            class="img-fluid w-25" alt="logo amazing events"></a>
+        <a class="navbar-brand text-lg-start text-center" href="./index.html"><img
+            src="./assets/img/Logo_Amazing_Events.png" class="img-fluid w-25" alt="logo amazing events"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -96,55 +96,61 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-<div class="d-flex flex-column align-items-center m-5">
-    <table class="table caption-top">
-      <caption><p class="h3 text-center">Event
-        statistics</p></caption>
-      <thead>
-        <tr>
-          <th scope="col" class="text-center">Evenvents with de highest percentage of
-            attendance</th>
-          <th scope="col" class="text-center">Events with de lowest percentage of
-            attendance</th>
-          <th scope="col" class="text-center">Events with larger capacity</th>
-        </tr>
-      </thead>
-      <tbody id="tb-event-stats">
-        
-         <tr v-if="statistics.length > 0" class="text-center">
-            <td>{{statistics[0].name}}: {{(statistics[0].assistance*100/statistics[0].capacity).toFixed(2)}}%</td>
-           <td>{{statistics[1].name}}: {{(statistics[1].assistance*100/statistics[1].capacity).toFixed(2)}}%</td>
-            <td>{{statistics[2].name}}: {{statistics[2].capacity}}</td>
-          </tr>
-        
-       
-        </tbody>
-        </table>
-        <table class="table caption-top">
-          <caption><p class="h3 text-center">Upcoming events
-            statistics by category</p></caption>
+    <div class="d-flex flex-column align-items-center m-5">
+      <table class="table caption-top">
+        <caption>
+          <p class="h3 text-center">Event
+            statistics</p>
+        </caption>
         <thead>
           <tr>
-            <th scope="col"class="text-center col-4">Categories</th>
+            <th scope="col" class="text-center">Evenvents with de highest percentage of
+              attendance</th>
+            <th scope="col" class="text-center">Events with de lowest percentage of
+              attendance</th>
+            <th scope="col" class="text-center">Events with larger capacity</th>
+          </tr>
+        </thead>
+        <tbody id="tb-event-stats">
+
+          <tr v-if="statistics.length > 0" class="text-center">
+            <td>{{statistics[0].name}}: {{(statistics[0].assistance*100/statistics[0].capacity).toFixed(2)}}%</td>
+            <td>{{statistics[1].name}}: {{(statistics[1].assistance*100/statistics[1].capacity).toFixed(2)}}%</td>
+            <td>{{statistics[2].name}}: {{statistics[2].capacity}}</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+      <table class="table caption-top">
+        <caption>
+          <p class="h3 text-center">Upcoming events
+            statistics by category</p>
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col" class="text-center col-4">Categories</th>
             <th scope="col" class="text-center col-4">Revenues</th>
             <th scope="col" class="text-center col-4">Percentage of attendance</th>
           </tr>
         </thead>
         <tbody id="tb-upcomming">
-      <template v-for="categoria of tableUpcoming">
-        <tr class="text-center">
-          <td>{{categoria.category}}</td>
-          <td>$ {{categoria.revenue}}</td>
-          <td>{{categoria.porcentaje}}%</td>
-        </tr>
-      </template>
+          <template v-for="categoria of tableUpcoming">
+            <tr class="text-center">
+              <td>{{categoria.category}}</td>
+              <td>$ {{categoria.revenue}}</td>
+              <td>{{categoria.porcentaje}}%</td>
+            </tr>
+          </template>
         </tbody>
-        </table>
-        <table class="table caption-top">
-          <caption><p class="h3 text-center">Past events statistics
-            by category</p></caption>
+      </table>
+      <table class="table caption-top">
+        <caption>
+          <p class="h3 text-center">Past events statistics
+            by category</p>
+        </caption>
         <thead>
-            <tr>
+          <tr>
             <th scope="col" class="text-center col-4">Categories</th>
             <th scope="col" class="text-center col-4">Revenues</th>
             <th scope="col" class="text-center col-4">Percentage of attendance</th>
@@ -158,9 +164,9 @@
               <td>{{categoria.porcentaje}}%</td>
             </tr>
           </template>
-            </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   </main>
   <footer class="d-flex justify-content-sm-between bg-black 
   align-items-center justify-content-center">
