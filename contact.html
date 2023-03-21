@@ -104,11 +104,11 @@
         </button>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <form class="bg-black g-3 needs-validation rounded d-flex flex-column
+        <form @submit.prevent="onSubmit" class="bg-black g-3 needs-validation rounded d-flex flex-column
           justify-content-center align-items-center m-3 col-7 border-card ">
           <div class="col-md-6 mx-3">
             <label for="validationCustom01 " class="form-label text-white">Name:</label>
-            <input type="text" class="form-control" id="validationCustom01"
+            <input type="text" v-model="dataForm.name" class="form-control" id="validationCustom01"
               placeholder="Mark" required>
             <div class="valid-feedback">
               Looks good!
@@ -116,7 +116,7 @@
           </div>
           <div class="col-md-6 mx-3">
             <label for="validationCustom02 " class="form-label text-white">Email:</label>
-            <input type="email" class="form-control" id="validationCustom02"
+            <input type="email" v-model="dataForm.email" class="form-control" id="validationCustom02"
               placeholder="example@gmail.com" required>
             <div class="valid-feedback">
               Looks good!
@@ -124,7 +124,7 @@
           </div>
           <div class="col-md-6 mx-3">
             <label for="validationCustom03 " class="form-label text-white">Mensagge:</label>
-            <textarea class="form-control" placeholder="Leave a comment here"
+            <textarea v-model="dataForm.message"  class="form-control" placeholder="Leave a comment here"
               id="floatingTextarea"></textarea>
             <div class="invalid-feedback">
               Please write some coment.
