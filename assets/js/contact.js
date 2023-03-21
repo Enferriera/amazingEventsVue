@@ -4,7 +4,8 @@ createApp({
 //define el estado de la aplicación
 data() {
 return {
-  dataForm:{}
+  dataForm:{},
+  dataJson:undefined
 }
 }, 
 created(){
@@ -13,7 +14,9 @@ created(){
 },
 methods:{
     onSubmit:function (){
-            console.log(JSON.stringify(this.dataForm))
+      this.dataJson=JSON.stringify(this.dataForm)
+            alert("Gracias por su consulta. Responderemos a la brebedad: "+ this.dataJson)
+            this.dataForm={}
         }
 }
 //inicializa la instancia de Vue
