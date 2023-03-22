@@ -68,6 +68,7 @@ createApp({
         table.push(objet)
 
       })
+      table.sort((a,b)=>a.category>b.category)
     }
 
   }
